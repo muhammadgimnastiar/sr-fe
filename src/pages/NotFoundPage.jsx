@@ -1,0 +1,25 @@
+"use client";
+
+import { Link } from "react-router-dom";
+import { Button, Result } from "antd";
+
+export default function NotFoundPage() {
+  return (
+    <>
+      <div className="flex items-center justify-center h-screen">
+        <Result
+          status="404"
+          title="404"
+          subTitle="Sorry, the page you visited does not exist."
+          extra={
+            <Link to={"/"}>
+              <Button type="text" className="bg-primary text-white hover:text-white">
+                Back to Home
+              </Button>
+            </Link>
+          }
+        />
+      </div>
+    </>
+  );
+}
