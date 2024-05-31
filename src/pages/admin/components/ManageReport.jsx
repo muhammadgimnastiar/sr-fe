@@ -48,10 +48,14 @@ const ManageReportsContent = () => {
   ];
 
   const downloadExcel = () => {
-    const worksheet = XLSX.utils.json_to_sheet(reportData?.data || []);
-    const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Reports");
-    XLSX.writeFile(workbook, "reports.xlsx");
+    if (window.confirm("Are you sure want to download file report?")) {
+      const worksheet = XLSX.utils.json_to_sheet(reportData?.data || []);
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, "Reports");
+      XLSX.writeFile(workbook, "reports.xlsx");
+    } else {
+      return;
+    }
   };
 
   return (
